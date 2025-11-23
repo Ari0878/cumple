@@ -1,0 +1,276 @@
+<!-- Código completo actualizado con animación intacta + pastel ordenado + centrado + 2cm bajo el texto -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Fer!</title>
+
+    <!-- FUENTE MAGICA -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ------------------ GLOBAL ------------------ */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Cinzel', serif;
+            background: radial-gradient(circle at top, #2a1a4e, #0a0a2e);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        /* ------------------ TITULOS ------------------ */
+        h1 {
+            font-size: 3.8em;
+            letter-spacing: 8px;
+            color: #ffd700;
+            text-shadow: 0 0 15px #ffd700, 0 0 30px #ff8c00, 0 0 50px #ff4500;
+            opacity: 0;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in 3s forwards, float 3.5s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 1.7em;
+            text-shadow: 0 0 12px #ffd700;
+            opacity: 0;
+            animation: fadeIn 2s ease-in 4s forwards;
+        }
+
+        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-18px); } }
+
+        /* ------------------ SNITCH / ICONOS ------------------ */
+        .snitch {
+            position: absolute;
+            font-size: 2.4em;
+            opacity: .9;
+            animation: fly 10s infinite linear;
+        }
+        @keyframes fly {
+            0% { left: -10%; top: 20%; }
+            25% { left: 20%; top: 80%; }
+            50% { left: 75%; top: 20%; }
+            75% { left: 40%; top: 70%; }
+            100% { left: 110%; top: 40%; }
+        }
+
+        .lightning {
+            font-size: 4em;
+            color: #ffd700;
+            text-shadow: 0 0 25px #ffd700;
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in 2s forwards;
+        }
+
+        .glasses {
+            font-size: 2.8em;
+            position: absolute;
+            top: 95px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in 2.6s forwards;
+        }
+
+        /* ------------------ STARS ------------------ */
+        .star {
+            position: absolute;
+            background: white;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+        @keyframes twinkle {
+            0%,100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.6); }
+        }
+
+        /* ------------------ CAKE ------------------ */
+        .cake-container {
+            margin-top: 2cm; /* distancia pedida */
+            opacity: 0;
+            animation: fadeIn 1s ease-in 4s forwards;
+        }
+
+        .cake {
+            position: relative;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cake-layer {
+            height: 60px;
+            background: linear-gradient(to bottom, #ff69b4 0%, #ff1493 70%, #d11581 100%);
+            border: 5px solid #d4a574;
+            border-radius: 15px;
+            margin-top: 12px;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+        }
+
+        .layer-top { width: 200px; }
+        .layer-middle { width: 260px; }
+        .layer-bottom { width: 320px; }
+
+        /* ------------------ CANDLES ------------------ */
+        .candles {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: -160px;
+        }
+
+        .candle {
+            width: 14px;
+            height: 80px;
+            background: linear-gradient(to right, #ff4500, #ff5733);
+            border-radius: 6px 6px 0 0;
+            position: relative;
+            animation: wiggle 2.5s infinite ease-in-out;
+        }
+        @keyframes wiggle { 0%,100% { rotate:0; } 50% { rotate:2deg; } }
+
+        .flame {
+            position: absolute;
+            top: -33px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 22px;
+            height: 32px;
+            background: radial-gradient(circle,#ffd700,#ff8c00,#ff4500);
+            border-radius: 50%;
+            animation: flicker 1.5s infinite ease-in-out;
+        }
+        @keyframes flicker {
+            0%,100% { transform:translateX(-50%) scale(1); opacity:1; }
+            50% { transform:translateX(-50%) scale(.85,1.15); opacity:.85; }
+        }
+
+        /* ------------------ WAND ------------------ */
+        .wand {
+            position: absolute;
+            width: 150px;
+            height: 4px;
+            top: 50%;
+            left: 50%;
+            transform-origin: left center;
+            background: linear-gradient(90deg,#8b4513,#d2691e);
+            animation: wave 3s ease-in-out;
+        }
+        @keyframes wave {
+            0% { transform:translate(-50%,-50%) rotate(35deg); opacity:0; }
+            20% { opacity:1; }
+            50% { transform:translate(-50%,-50%) rotate(-20deg); }
+            100% { transform:translate(-180%,-180%) rotate(35deg); opacity:0; }
+        }
+
+        .wand::before {
+            content:"";
+            position:absolute;
+            right:-10px;
+            width:10px;
+            height:10px;
+            top:-3px;
+            border-radius:50%;
+            background:#ffd700;
+            box-shadow:0 0 15px #ffd700;
+        }
+
+        .spark {
+            position:absolute;
+            width:4px;
+            height:4px;
+            background:#ffd700;
+            border-radius:50%;
+            animation:spark 1.5s ease-out forwards;
+        }
+        @keyframes spark {
+            0% { opacity:1; }
+            100% { transform:translate(var(--tx),var(--ty)); opacity:0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="snitch">⚡</div>
+    <div class="lightning">⚡</div>
+    <div class="glasses">👓</div>
+
+    <div class="container">
+        <h1>HAPPY BIRTHDAY FER!</h1>
+
+        <br>
+        <br>
+        <br><br><br>
+        <div class="cake-container">
+            <div class="candles">
+                <div class="candle"><div class="flame"></div></div>
+                <div class="candle"><div class="flame"></div></div>
+                <div class="candle"><div class="flame"></div></div>
+            </div>
+
+            <div class="cake">
+                <div class="cake-layer layer-top"></div>
+                <div class="cake-layer layer-middle"></div>
+                <div class="cake-layer layer-bottom"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* -------- STARS -------- */
+        for (let i = 0; i < 120; i++) {
+            const s = document.createElement("div");
+            s.className = "star";
+            s.style.left = Math.random() * 100 + "%";
+            s.style.top = Math.random() * 100 + "%";
+            s.style.animationDelay = Math.random() * 3 + "s";
+            s.style.transform = `scale(${Math.random() * 1.7})`;
+            document.body.appendChild(s);
+        }
+
+        /* -------- MAGIC WAND + SPARKS -------- */
+        setTimeout(() => {
+            const wand = document.createElement("div");
+            wand.className = "wand";
+            document.body.appendChild(wand);
+
+            for (let i = 0; i < 35; i++) {
+                setTimeout(() => {
+                    const sp = document.createElement("div");
+                    sp.className = "spark";
+                    sp.style.left = "50%";
+                    sp.style.top = "50%";
+                    sp.style.setProperty("--tx", (Math.random() - .5) * 350 + "px");
+                    sp.style.setProperty("--ty", (Math.random() - .5) * 350 + "px");
+                    document.body.appendChild(sp);
+                    setTimeout(() => sp.remove(), 1500);
+                }, i * 40);
+            }
+
+            setTimeout(() => wand.remove(), 3000);
+        }, 700);
+    </script>
+</body>
+</html>
